@@ -1,40 +1,56 @@
-import pygame
-import pygame_widgets
-from pygame_widgets.button import Button
+from tkinter import *
+from tkinter import ttk
+#инициализируем глобальные переменные, так как код упакован в функции для распределения по файлам
+questions = ['a','g']
+trueAnswers = []
+userAnswers = []
+
+i = 0
+#Methods
+def getAnswer():
+    global i
+    global answer
+    ans = answer.get()
+    userAnswers.append(ans)
+    i+=1
+    print('a')
+
+    
 
 def termins():
-    w = 800
-    h = 570
-    FPS = 30
+    #инициализировали окно и задали его размеры
+    window = Tk()
+    window.title('Викторина по терминам')
+    window.geometry("1020x800")
+    #Заготовка
 
-    #settings
-    BGCOLOR = (255, 255, 255)
+    for i in range(len(questions)):
+        #Вопрос
+        question= ttk.Label(window, 
+                            text=f'Вопрос {i+1}. {questions[i]}',
+                            font=("Courier", 20),
+                            justify=LEFT,
+                            wraplength=1000
+                            )
+        question.pack(anchor=W, pady=30, padx=40)        
+    
+        #Ответ
+        answer = ttk.Entry(window,  
+                        width=40, 
+                        justify=LEFT, 
+                        font=("Calibri", 20)
+                        )
+        answer.pack(anchor=W, padx=40, pady=20)
+        
+        #Кнопка отправки ответа
+        btn = Button(text="Ответить", 
+                        width=10, 
+                        justify=CENTER,
+                        font=('Courier',14),
+                        command = getAnswer()
+                        )
+        btn.pack(anchor=W, pady=10, padx=40)
 
-
-    # создаем игру и окно
-    pygame.init()
-    sc = pygame.display.set_mode((w,h))
-    clock = pygame.time.Clock()
-
-    sc.fill(BGCOLOR)
-    pygame.display.flip()
-    pygame.display.update()
-    pygame.display.set_caption('Victorina')
-
-    test = True
-    while test:
-        # Ввод процесса (события)
-        events = pygame.event.get()
-        for event in events:
-            if event.type==pygame.QUIT :
-                test=False
-        # Обновление
-        pygame_widgets.update(events)  # Call once every loop to allow widgets to render and listen
-        pygame.display.update()
-        # Визуализация (сборка)
-
-    #освобождение памяти и деинсталяция модулей pygame
-    pygame.quit()
-    quit()
-
-
+    #отображение окна
+    window.mainloop()
+termins()

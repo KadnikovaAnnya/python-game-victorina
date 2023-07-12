@@ -1,5 +1,4 @@
 import pygame
-import pygame_menu
 import pygame_widgets
 from pygame_widgets.button import Button
 def start_the_game():
