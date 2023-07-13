@@ -1,7 +1,6 @@
 import pygame
 import pygame_menu
-import pygame_widgets
-from pygame_widgets.button import Button
+
 
 #инициализировали пакеты
 pygame.init()
@@ -9,7 +8,7 @@ menuScreen = pygame.display.set_mode((400, 300))
 pygame.display.set_caption('Menu')
 
 #Функции кнопок меню
-from alpha import start_the_game  
+from alpha import start_the_game
 
 #кастомизация темы
 mytheme = pygame_menu.themes.THEME_ORANGE.copy()

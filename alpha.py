@@ -1,6 +1,26 @@
 import pygame
 import pygame_widgets
-from pygame_widgets.button import Button
+from pygame_widgets.button import Button as bt
+from tkinter import *
+import subprocess
+#in cmd
+#pyinstaller --onefile alpha.py
+
+#функции программы
+#Перенаправление данных на .exe-файлы для упрощения запуска
+def termins():
+    subprocess.run(["dist/termins.exe"])
+def dates():
+    subprocess.run(["dist/dates.exe"])
+def historyEvents():
+    subprocess.run(["dist/historyEvents.exe"])
+def people():
+    subprocess.run(["dist/people.exe"])
+def countries():
+    subprocess.run(["dist/countries.exe"])
+
+
+
 def start_the_game():
 # Pygame шаблон - скелет для нового проекта Pygame
     WIDTH = 800
@@ -26,15 +46,8 @@ def start_the_game():
     heading = headingFont.render('Викторина!', True, HEADINGCOLOR,)
     screen.blit(heading, (175, 50))
     
-    #функции кнопок
-    from countries import countries
-    from dates import dates
-    from historyEvents import historyEvents
-    from people import people
-    from termins import termins
-
     #Buttons to choose category
-    button1 = Button(
+    button1 = bt (
         # Mandatory Parameters
         screen,  # Surface to place button on
         100,  # X-coordinate of top left corner
@@ -53,7 +66,7 @@ def start_the_game():
         onClick=termins  # Function to call when clicked on
     )
 
-    button2 = Button(
+    button2 = bt(
         # Mandatory Parameters
         screen,  # Surface to place button on
         100,  # X-coordinate of top left corner
@@ -72,7 +85,7 @@ def start_the_game():
         onClick=dates  # Function to call when clicked on
     )
 
-    button3 = Button(
+    button3 = bt(
         # Mandatory Parameters
         screen,  # Surface to place button on
         100,  # X-coordinate of top left corner
@@ -91,7 +104,7 @@ def start_the_game():
         onClick=historyEvents  # Function to call when clicked on
     )
     
-    button4 = Button(
+    button4 = bt(
         # Mandatory Parameters
         screen,  # Surface to place button on
         100,  # X-coordinate of top left corner
@@ -110,7 +123,7 @@ def start_the_game():
         onClick=people  # Function to call when clicked on
     )
 
-    button5 = Button(
+    button5 = bt(
         # Mandatory Parameters
         screen,  # Surface to place button on
         100,  # X-coordinate of top left corner
@@ -145,4 +158,3 @@ def start_the_game():
     #освобождение памяти и деинсталяция модулей pygame
     pygame.quit()
     quit()
-
