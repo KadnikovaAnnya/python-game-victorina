@@ -3,8 +3,6 @@ import pygame_widgets
 from pygame_widgets.button import Button as bt
 from tkinter import *
 import subprocess
-#in cmd
-#pyinstaller --onefile alpha.py
 
 #функции программы
 #Перенаправление данных на .exe-файлы для упрощения запуска
@@ -18,8 +16,6 @@ def people():
     subprocess.run(["dist/people.exe"])
 def countries():
     subprocess.run(["dist/countries.exe"])
-
-
 
 def start_the_game():
 # Pygame шаблон - скелет для нового проекта Pygame

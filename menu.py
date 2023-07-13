@@ -1,11 +1,10 @@
 import pygame
 import pygame_menu
-
-
+import pygame_widgets
 #инициализировали пакеты
 pygame.init()
 menuScreen = pygame.display.set_mode((400, 300))
-pygame.display.set_caption('Menu')
+pygame.display.set_caption('Menu') #задали название окна
 
 #Функции кнопок меню
 from alpha import start_the_game
